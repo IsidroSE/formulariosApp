@@ -5,10 +5,7 @@ const routes: Routes = [];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
+    RouterModule.forChild(routes)
   ]
 })
-export class AppRoutingModule { }
+export class ReactiveRoutingModule { }
