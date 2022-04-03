@@ -12,6 +12,12 @@ export class BasicosComponent implements OnInit {
   @ViewChild('miFormulario') 
   miFormulario!: NgForm;
 
+  initForm = {
+    producto: 'RTX 4090',
+    precio: 10,
+    existencias: 5
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,6 +41,12 @@ export class BasicosComponent implements OnInit {
 
   guardar() {
     console.log(this.miFormulario);
+
+    this.miFormulario.resetForm({
+      producto: 'algo',
+      precio: 0,
+      existencias: 0
+    });
   }
 
 }

@@ -20,6 +20,7 @@
                         placeholder="Nombre del producto"
                         ngModel
                         name="producto"
+                        [ngModel]="initForm.producto"
                         required
                         minlength="3">
 
@@ -42,6 +43,7 @@
                         placeholder="Precio del producto"
                         ngModel
                         name="precio"
+                        [ngModel]="initForm.precio"
                         required
                         min="0"/>
 
@@ -64,6 +66,7 @@
                         placeholder="Existencias del producto"
                         ngModel
                         name="existencias"
+                        [ngModel]="initForm.existencias"
                         customMin
                         [minimo]="0"/>
 
