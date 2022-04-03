@@ -4,17 +4,31 @@
 <div class="row">
     <div class="col">
 
-        <form>
+        <form 
+            (ngSubmit)="guardar(miFormulario)" 
+            #miFormulario="ngForm"
+            autocomplete="off">
 
             <!-- Campo de producto -->
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-9">
+
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Nombre del producto"/>
-                    <span class="form-text text-danger" >Debe de ser de 3 letras</span>
+                        placeholder="Nombre del producto"
+                        ngModel
+                        name="producto"
+                        required
+                        minlength="3">
+
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="miFormulario.controls['producto']?.invalid 
+                        && miFormulario.controls['producto']?.touched">
+                        Debe de ser de 3 letras
+                    </span>
                 </div>
             </div>
 
@@ -25,7 +39,10 @@
                     <input
                         type="number"
                         class="form-control"
-                        placeholder="Precio del producto"/>
+                        placeholder="Precio del producto"
+                        ngModel
+                        name="precio"
+                        required/>
                     <span class="form-text text-danger" >Debe de ser de 3 letras</span>
                 </div>
             </div>
@@ -37,7 +54,9 @@
                     <input
                         type="number"
                         class="form-control"
-                        placeholder="Existencias del producto"/>
+                        placeholder="Existencias del producto"
+                        ngModel
+                        name="existencias"/>
                     <span class="form-text text-danger" >Debe de ser de 3 letras</span>
                 </div>
             </div>
@@ -53,6 +72,24 @@
             </div>
 
         </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{ miFormulario.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ miFormulario.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ miFormulario.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ miFormulario.value | json }}</pre>
 
     </div>
 </div>
