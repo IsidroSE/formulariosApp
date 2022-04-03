@@ -28,6 +28,11 @@ export class BasicosComponent implements OnInit {
     && this.miFormulario?.controls['precio']?.value < 0
   }
 
+  esExistenciasValido(): boolean {
+    return this.miFormulario?.controls['existencias']?.invalid 
+    && this.miFormulario?.controls['existencias']?.touched
+  }
+
   guardar() {
     console.log(this.miFormulario);
   }
