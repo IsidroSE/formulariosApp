@@ -15,7 +15,11 @@ export class RegistroComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [ Validators.required, Validators.pattern(this.vs.nombreApellidoPattern) ]],
     email: ['', [ Validators.required,  Validators.pattern(emailPattern) ]],
-    username: ['', [ Validators.required, noPuedeSerStrider ]]
+    username: ['', [ Validators.required, noPuedeSerStrider ]],
+    password: ['', [ Validators.required, Validators.minLength(6) ]],
+    confirmPass: ['', [ Validators.required ]]
+  }, {
+    validators: [ this.vs.camposIguales('password', 'confirmPass') ]
   });
 
   constructor( 
